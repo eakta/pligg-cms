@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pligg CMS by Pligg</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Pligg CMS</h1>
+        <p class="header">The social publishing content management system</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/Pligg/pligg-cms/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/Pligg/pligg-cms/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/Pligg/pligg-cms">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/Pligg">Pligg</a></p>
+
+
+      </header>
+      <section>
+        <h3>
+<a name="welcome-to-pligg-cms" class="anchor" href="#welcome-to-pligg-cms"><span class="octicon octicon-link"></span></a>Welcome to Pligg CMS!</h3>
+
+<p>You are just a few steps away from starting your very first Pligg website! This page will guide you through installing Pligg for the first time, upgrading an existing Pligg website to the latest version, troubleshooting common issues, and backing up your Pligg site for safe keeping.</p>
+
+<p><strong>About Pligg:</strong> Pligg is an open source CMS that powers news and and user feedback websites. It is available to download for free from the project homepage: <a href="http://pligg.com">http://pligg.com</a>.</p>
+
+<h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p><strong>Requirements:</strong> Pligg requires a modern version of PHP and MySQL and some PHP functions. To test if your server is capable of running Pligg please view the Troubleshooter. If any errors appear on that page you may have a problem with either installing or running Pligg.
+1. Create a mysql database. If you are unfamiliar with how to create a mysql database, please contact your web host or search their support site. Please pay careful attention when creating a database and write down your database name, username, password, and host somewhere.
+2. Rename the /favicon.ico.default to /favicon.ico
+3. Rename the /settings.php.default to /settings.php
+4. Rename the /language/lang_english.conf.default file to lang_english.conf. Same instructions apply to any other language file that you might use that are located in the /languages directory.
+5. Rename the /libs/dbconnect.php.default file to dbconnect.php
+6. Rename the directory /logs.default to /logs
+7. Upload the files to your server.
+8. CHMOD 755 the following directories and files. If you experience any errors try 777.</p>
+
+<ul>
+<li>/admin/backup/</li>
+<li>/avatars/groups_uploaded/</li>
+<li>/avatars/user_uploaded/</li>
+<li>/cache/</li>
+<li>/languages/ (all files contained in this folder should be CHMOD 777)</li>
+<li>/logs/ (all files contained should be CHMOD 777)</li>
+<li>CHMOD 666 the following files</li>
+<li>/libs/dbconnect.php</li>
+<li>/settings.php</li>
+<li>Open /install/index.php in your web browser. If you are reading this document after you uploaded it to your server, click on the install link at the top of the page.</li>
+<li>Select a language from the list.</li>
+<li>Fill out your database name, username, password, host, and your desired table prefix.</li>
+<li>Create an admin account. Please write down the login credentials for future reference.</li>
+<li>Make sure there are no error messages! If you see an error message, or if installation fails, report it here.</li>
+<li>Delete your /install folder.</li>
+<li>CHMOD 644 libs/dbconnect.php</li>
+<li>Open /index.php</li>
+<li>Log in to the admin account using the credentials generated during the install process.</li>
+<li>Log in to the admin panel ( /admin ).</li>
+<li>Configure your Pligg site to your liking.</li>
+</ul><h3>
+<a name="backup" class="anchor" href="#backup"><span class="octicon octicon-link"></span></a>Backup</h3>
+
+<p>Backing up your Pligg files is an important step that you should routinely perform to make sure that you won't lose crucial data. Below are directions on how to generate a backup of your files as well as Pligg's MySQL database.</p>
+
+<ol>
+<li>Log into your site as admin</li>
+<li>Click on admin panel link</li>
+<li>Click on File and MySQL backup link</li>
+<li>Backup your files, avatars, and MySQL database</li>
+<li>Download the backup .zip files to your computer</li>
+<li>Delete the files from the backup manager</li>
+</ol><h3>
+<a name="upgrading" class="anchor" href="#upgrading"><span class="octicon octicon-link"></span></a>Upgrading</h3>
+
+<blockquote>
+<p>Please be sure to <strong>make a backup of your MySQL databases and files before upgrading</strong> to the latest version of Pligg. Some upgrades might require that you upgrade your MySQL database, so please make backups whenever upgrading. These instructions do not include information about upgrading your template files. Template upgrades require manual changes and should be carefully handled by the template author. The directions below are recommendations that we have come up with to mininimize the number of problems that might come from upgrading your site. </p>
+</blockquote>
+
+<ol>
+<li>Backup your MySQL database</li>
+<li>Backup your old Pligg CMS files.</li>
+<li>Rename your template folder so that the data is not overwritten by upgrade files. If you use a template name that is not included with Pligg, skip this step.</li>
+<li>Disable all of the modules from your admin panel. You will need to re-enable them after upgrade.</li>
+<li>Delete all of the files from your server EXCEPT:</li>
+<li>/avatars/ (entire directory)</li>
+<li>/libs/dbconnect.php</li>
+<li>/favicon.ico</li>
+<li>/settings.php</li>
+<li>Upload all of the new files to your server. If you are able to, I suggest uploading a zip file to the server and extracting it server-side. This will minimize the chances of files being corrupted during FTP transfer, which is a common issue.</li>
+<li>Confirm that the CHMOD permissions for the following files or directories are all set to 777.</li>
+<li>/settings.php</li>
+<li>/admin/backup/</li>
+<li>/avatars/groups_uploaded/</li>
+<li>/avatars/user_uploaded/</li>
+<li>/cache/</li>
+<li>/languages/ (and all of the content within this directory)</li>
+<li>Run the upgrade from /install/upgrade.php. If there are no error messages, delete the /install directory from your web server.</li>
+<li>Navigate to your homepage and log in as an "admin" level user. In some cases you may already be logged in from your previous version of Pligg.</li>
+<li>Either update your template to work with the latest version or navigate to /admin/admin_config.php?page=Template and change the template name to "bootstrap" to use the default Pligg template.</li>
+<li>Re-activate the disabled modules from step 4</li>
+</ol><h3>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h3>
+
+<p>This code was originally written by Ricardo Galli for the open source project known as Meneame.</p>
+
+<p>Many thanks to those who donated time and money to the Pligg project. Without their support we wouldn't be able to keep this project going. If you are interested in becoming a part of the development team please contact us through pligg.com.</p>
+
+<p>Graphic design elements by the following authors or projects:</p>
+
+<ul>
+<li>Bootstrap icons by Glyphicons.com</li>
+<li>Social Media Icons by Vervex</li>
+</ul><p>A special thank you to all of the Pligg developers and translators.</p>
+
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p>Pligg's source code is published under the Creative Commons Attribution 3.0 Unported Copyright. You can view the license in the file LICENSE.txt.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-60681-5");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
